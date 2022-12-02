@@ -1,0 +1,9 @@
+// MIXINS
+
+@mixin alert-theme($theme: lightgray) {
+    background-color: $theme;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(#000000, .3);
+}

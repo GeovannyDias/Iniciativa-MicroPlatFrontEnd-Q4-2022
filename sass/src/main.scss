@@ -1,0 +1,85 @@
+
+@import 'variables';
+@import 'mixins';
+@import 'buttons';
+@import 'grid';
+
+:root {
+    --color-red: red;
+}
+
+body {
+    font: 100% $font-stack;
+    color: $color-blue;
+}
+
+// NESTING
+
+nav {
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+            display: inline-block;
+
+            a {
+                border: 1px solid $color-border;
+                display: block;
+                padding: 0.25rem 2rem;
+                text-decoration: none;
+                color: gray;
+
+                &:hover {
+                    background-color: $color-secondary;
+                    color: $color-blue;
+                }
+            }
+        }
+    }
+}
+
+
+// MIXINS
+
+
+.alert-info {
+    @include alert-theme;
+}
+
+.alert-error {
+    @include alert-theme($theme: red);
+}
+
+.alert-success {
+    @include alert-theme(lightgreen);
+}
+
+// EXTEND / INHERITANCE
+
+%message-shared {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.message {
+    @extend %message-shared;
+}
+
+.message-error {
+    @extend %message-shared;
+    border-color: red;
+}
+
+.message-success {
+    @extend %message-shared;
+    border-color: green;
+}
+
+.message-warning {
+    @extend %message-shared;
+    border-color: yellowgreen;
+}
+
